@@ -52,14 +52,52 @@ Y0=s1′s0′I <br>
 
 
 ## Program:
+``` python
+1.Multiplexer
 
+module mux(I0,I1,I2,I3,s1,s0,y);
+input I0,I1,I2,I3,s0,s1;
+output y;
+wire p,q,r,s,s1d,s0d;
+not(s1d,s1);
+not(s0d,s0);
+and(p,s1d,s0d,I0);
+and(q,s1d,s0,I1);
+and(r,s1,s0d,I2);
+and(s,s1,s0,I3);
+or(y,p,q,r,s);
+endmodule 
+
+2.Demultiplexer
+
+module demux(I,s1,s0,y3,y2,y1,y0);
+input I,s1,s0;
+output y3,y2,y1,y0;
+wire s1d,s0d;
+not(s1d,s1);
+not(s0d,s0);
+and(y3,s1,s0,I);
+and(y2,s1,s0d,I);
+and(y1,s1d,s0,I);
+and(y0,s1d,s0d,I);
+endmodule 
+```
 
 ## RTL Schematic:
+### 1.Multiplexer:
+![image](https://github.com/harini1006/Mux-Demux/assets/113497405/ba7f8f8c-c1c8-41d1-aad9-05b43ee2ef1b)
+### 2.Demultiplexer:
+![image](https://github.com/harini1006/Mux-Demux/assets/113497405/0757fe73-ffcc-40b7-b867-23fe7be3c92b)
+
 
 
 
 
 ## Timing Diagram:
+### 1.Multiplexer:
+![image](https://github.com/harini1006/Mux-Demux/assets/113497405/8707d1fe-44da-4f85-aec9-caee6f02ceb5)
+### 2.Demultiplexer:
+![image](https://github.com/harini1006/Mux-Demux/assets/113497405/92396754-5a53-4336-9b3f-451ec848e925)
 
 
 
